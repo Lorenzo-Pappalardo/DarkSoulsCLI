@@ -6,11 +6,11 @@ import java.io.FileReader;
 
 public class Storage {
     private Storage instance;
-    private FileReader saveFile;
+    private FileReader scores;
 
     private Storage() throws FileNotFoundException {
         if (instance == null)
             instance = new Storage();
-        saveFile = new FileReader(new File("saveFile.txt"));
+        scores = new FileReader(new File("scores.txt"));
     }
 }
