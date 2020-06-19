@@ -1,27 +1,41 @@
 package main;
 
+import java.util.Scanner;
+
 public class MainMenu implements ActiveScreen {
-    @Override
-    public void printTitle() {
+    private void printContents() {
         System.out.println("Main Menu");
         for (int i = 0; i < 30; i++) {
             System.out.print('-');
         }
         System.out.println();
+        System.out.println("(1) New Game");
+        System.out.println("(2) Show Scores");
+        System.out.println("(3) Show Credits");
+        System.out.println("(4) Exit");
+        System.out.print("\nYour choice: ");
     }
 
-    @Override
-    public void printContents() {
-        System.out.println("(1) New Game");
-        System.out.println("(2) Show Credits");
-        System.out.println("(3) Quit");
-        for (int i = 0; i < 30; i++) {
-            System.out.print('-');
+    private ActiveScreen getChoice() {
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        scanner.close();
+        if (choice == 1)
+            return new Game();
+        else if (choice == 2)
+            return new Scores();
+        else if (choice == 3)
+            return new Credits();
+        else if (choice == 4)
+            return new Exit();
+        else {
+            System.err.println("Wrong choice, try again!");
+            return getChoice();
         }
     }
 
-    public void init() {
-        Player player = Player.getInstance();
-        player.printInfo();
+    public void init(Context context) {
+        printContents();
+        context.switchActiveScreen(getChoice());
     }
 }
