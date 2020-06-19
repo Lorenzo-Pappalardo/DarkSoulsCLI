@@ -1,5 +1,7 @@
 package main;
 
 public interface ActiveScreen {
-    public ActiveScreen getActiveScreen();
+    public void printTitle();
+    public void printContents();
+    public void init();
 }

@@ -15,7 +15,7 @@ public class Player {
         souls = 0;
     }
 
-    private static String getName() {
+    private static String setName() {
         System.out.println("Enter name: ");
         Scanner input = new Scanner(System.in);
         String name = input.next();
@@ -25,7 +25,7 @@ public class Player {
 
     public static Player getInstance() {
         if (instance == null)
-            instance = new Player(getName());
+            instance = new Player(setName());
         return instance;
     }
 
