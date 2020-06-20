@@ -12,7 +12,12 @@ public class Game implements ActiveScreen {
     @Override
     public void init(Context context) {
         printContents();
-        // Player player = Player.getInstance();
-        // player.printInfo();
+        Player player = Player.getInstance();
+        player.printInfo();
+        getBackToMainMenu(context);
+    }
+
+    private void getBackToMainMenu(Context context) {
+        context.switchActiveScreen(new MainMenu());
     }
 }

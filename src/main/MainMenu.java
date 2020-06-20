@@ -13,13 +13,12 @@ public class MainMenu implements ActiveScreen {
         System.out.println("(2) Show Scores");
         System.out.println("(3) Show Credits");
         System.out.println("(4) Exit");
-        System.out.print("\nYour choice: ");
     }
 
     private ActiveScreen getChoice() {
+        System.out.print("\nYour choice: ");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
-        scanner.close();
         if (choice == 1)
             return new Game();
         else if (choice == 2)

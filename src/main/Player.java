@@ -2,9 +2,12 @@ package main;
 
 import java.util.Scanner;
 
+/**
+ * Singleton
+ */
 public class Player {
     private static Player instance;
-    private String name;
+    private final String name;
     private Integer health;
     private Integer souls;
     // private Inventory inventory;
@@ -15,18 +18,23 @@ public class Player {
         souls = 0;
     }
 
-    private static String setName() {
-        System.out.println("Enter name: ");
-        Scanner input = new Scanner(System.in);
-        String name = input.next();
-        input.close();
-        return name;
+    private static String getName() {
+        System.out.println("Enter a name: ");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
     }
 
     public static Player getInstance() {
         if (instance == null)
-            instance = new Player(setName());
+            instance = new Player(getName());
         return instance;
+    }
+
+    public void printInfo() {
+        System.out.println("[Player]");
+        System.out.println("Name: " + name);
+        System.out.println("Health: " + health);
+        System.out.println("Souls: " + souls);
     }
 
     public void updateHealth(Integer value) {
@@ -35,11 +43,5 @@ public class Player {
 
     public void updateSouls(Integer value) {
         souls += value;
-    }
-
-    public void printInfo() {
-        System.out.println("Name: " + name);
-        System.out.println("Health: " + health);
-        System.out.println("Souls: " + souls);
     }
 }

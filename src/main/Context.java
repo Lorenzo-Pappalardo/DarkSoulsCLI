@@ -13,6 +13,7 @@ public class Context {
 
     public void switchActiveScreen(ActiveScreen activeScreen) {
         this.activeScreen = activeScreen;
+        System.out.println("\n\n");
         start();
     }
 }
