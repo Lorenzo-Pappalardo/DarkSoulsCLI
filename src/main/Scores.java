@@ -9,8 +9,13 @@ public class Scores implements ActiveScreen {
         System.out.println();
     }
 
+    private void getBackToMainMenu(Context context) {
+        context.switchActiveScreen(new MainMenu());
+    }
+
     @Override
     public void init(Context context) {
         printContents();
+        getBackToMainMenu(context);
     }
 }

@@ -33,6 +33,7 @@ public class MainMenu implements ActiveScreen {
         }
     }
 
+    @Override
     public void init(Context context) {
         printContents();
         context.switchActiveScreen(getChoice());
