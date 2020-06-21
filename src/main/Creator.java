@@ -1,7 +1,7 @@
 package main;
 
-import Enemies.Enemy;
-import Weapons.Weapon;
+import enemies.Enemy;
+import weapons.Weapon;
 
 /**
  * Creator and Concrete Creator for design pattern Factory Method
