@@ -1,4 +1,4 @@
-package Weapons;
+package weapons;
 
 /**
  * Concrete Product for Factory Method design pattern

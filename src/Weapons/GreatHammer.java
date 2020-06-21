@@ -1,17 +1,14 @@
 package weapons;
 
-/**
- * Concrete Product for Factory Method design pattern
- */
-public class Sword implements Weapon {
+public class GreatHammer implements Weapon {
     final private String name;
     final private Integer damage;
     final private Float critMultiplier;
 
-    public Sword() {
-        name = "Sword";
-        damage = 25;
-        critMultiplier = 1.5f;
+    public GreatHammer() {
+        name = "Giant Hammer";
+        damage = 27;
+        critMultiplier = 1f;
     }
 
     @Override

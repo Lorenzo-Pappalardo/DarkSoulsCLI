@@ -1,4 +1,4 @@
-package Weapons;
+package weapons;
 
 /**
  * Product interface for Factory Method design pattern
