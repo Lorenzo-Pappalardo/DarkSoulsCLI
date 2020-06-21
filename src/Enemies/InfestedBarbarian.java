@@ -1,6 +1,5 @@
 package enemies;
 
-import weapons.Club;
 import weapons.Weapon;
 
 public class InfestedBarbarian implements Enemy {

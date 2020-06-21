@@ -1,6 +1,5 @@
 package enemies;
 
-import weapons.Knife;
 import weapons.Weapon;
 
 import java.util.Random;
