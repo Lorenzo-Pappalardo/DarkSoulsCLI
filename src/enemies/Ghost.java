@@ -14,11 +14,6 @@ public class Ghost implements Enemy {
     }
 
     @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
     public Boolean isBoss() {
         return false;
     }
@@ -29,7 +24,7 @@ public class Ghost implements Enemy {
     }
 
     @Override
-    public void updateHealth(Float damage) {
+    public void decreaseHealth(Float damage) {
         health -= damage;
     }
 
@@ -46,5 +41,14 @@ public class Ghost implements Enemy {
     @Override
     public Boolean block() {
         return true;
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println();
+        System.out.println("[Enemy]");
+        System.out.println("Name: " + name);
+        System.out.println("Health: " + health);
+        System.out.println("Weapon: " + weapon.getName());
     }
 }

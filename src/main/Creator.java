@@ -14,7 +14,7 @@ public class Creator {
      */
     public static Enemy getEnemy(Integer enemiesDefeated) {
         Random random = new Random(System.currentTimeMillis());
-        int randomChoice = random.nextInt() % (3 + enemiesDefeated);
+        Integer randomChoice = random.nextInt() % (3 + enemiesDefeated);
         if (randomChoice == 0)          //Ghost
             return new Ghost(getWeapon(randomChoice));
         else if (randomChoice == 1)     //Skeleton

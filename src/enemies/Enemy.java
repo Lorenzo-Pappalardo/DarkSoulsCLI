@@ -5,13 +5,6 @@ package enemies;
  */
 public interface Enemy {
     /**
-     * Returns an Enemy's name
-     *
-     * @return name : String
-     */
-    String getName();
-
-    /**
      * Checks if an Enemy is a Boss
      *
      * @return Boolean
@@ -28,7 +21,7 @@ public interface Enemy {
     /**
      * Decreases an Enemy's health by the amount of damage taken
      */
-    void updateHealth(Float damage);
+    void decreaseHealth(Float damage);
 
     /**
      * Checks if an Enemy died and returns the result
@@ -50,4 +43,9 @@ public interface Enemy {
      * @return Boolean
      */
     Boolean block();
+
+    /**
+     * Prints Enemy name and health
+     */
+    void printInfo();
 }

@@ -16,11 +16,6 @@ public class OrnsteinSmoug implements Enemy {
     }
 
     @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
     public Boolean isBoss() {
         return true;
     }
@@ -31,7 +26,7 @@ public class OrnsteinSmoug implements Enemy {
     }
 
     @Override
-    public void updateHealth(Float damage) {
+    public void decreaseHealth(Float damage) {
         health -= damage;
     }
 
@@ -49,5 +44,14 @@ public class OrnsteinSmoug implements Enemy {
     public Boolean block() {
         Random random = new Random(System.currentTimeMillis());
         return ((random.nextInt() % 2) == 0);
+    }
+
+    @Override
+    public void printInfo() {
+        System.out.println();
+        System.out.println("[Enemy]");
+        System.out.println("Name: " + name);
+        System.out.println("Health: " + health);
+        System.out.println("Weapon: " + weapon.getName());
     }
 }

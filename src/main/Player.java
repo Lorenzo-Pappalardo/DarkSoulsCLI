@@ -1,5 +1,7 @@
 package main;
 
+import enemies.Enemy;
+
 import java.util.Scanner;
 
 /**
@@ -7,15 +9,16 @@ import java.util.Scanner;
  */
 public class Player {
     private static Player instance;
-    private final String name;
-    private Integer health;
+    final private String name;
+    private Float health;
     private Integer souls;
-    // private Inventory inventory;
+    final private Float damage;
 
     private Player(String name) {
         this.name = name;
-        health = 100;
+        health = 100f;
         souls = 0;
+        damage = 20f;
     }
 
     private static String getName() {
@@ -31,17 +34,31 @@ public class Player {
     }
 
     public void printInfo() {
+        System.out.println();
         System.out.println("[Player]");
         System.out.println("Name: " + name);
         System.out.println("Health: " + health);
         System.out.println("Souls: " + souls);
     }
 
-    public void updateHealth(Integer value) {
-        health += value;
+    public Float getHealth() {
+        return health;
+    }
+
+    public void decreaseHealth(Integer value) {
+        health -= value;
+    }
+
+    public void setHealth(Float health) {
+        this.health = health;
     }
 
     public void updateSouls(Integer value) {
         souls += value;
+    }
+
+    public void attack(Enemy enemy) {
+        System.out.println(name + " performs a basic attack and inflicts " + damage + " points of damage!");
+        enemy.decreaseHealth(damage);
     }
 }
