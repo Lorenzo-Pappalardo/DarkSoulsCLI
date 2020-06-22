@@ -46,7 +46,7 @@ public class UndeadAssassin implements Enemy {
     @Override
     public Boolean block() {
         Random random = new Random(System.currentTimeMillis());
-        return ((random.nextInt() % 5) != 4);
+        return (random.nextInt(5) != 4);
     }
 
     @Override

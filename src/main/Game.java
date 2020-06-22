@@ -2,9 +2,19 @@ package main;
 
 import enemies.Enemy;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game implements ActiveScreen {
+    private Boolean rollCritMultiplier;
+
+    private Boolean parryCritMultiplier;
+
+    public Game() {
+        rollCritMultiplier = false;
+        parryCritMultiplier = false;
+    }
+
     private void printContents() {
         System.out.println("Game");
         for (int i = 0; i < 30; i++) {
@@ -23,6 +33,7 @@ public class Game implements ActiveScreen {
                 enemy.printInfo();
                 playerActions(enemy);
             }
+            enemiesDefeated++;
         }
     }
 
@@ -33,6 +44,10 @@ public class Game implements ActiveScreen {
         Integer choice = getChoice();
         if (choice == 1)
             execBasicAttack(enemy);
+        else if (choice == 2)
+            execRoll(enemy);
+        else
+            execParry(enemy);
     }
 
     private Integer getChoice() {
@@ -48,7 +63,31 @@ public class Game implements ActiveScreen {
     }
 
     private void execBasicAttack(Enemy enemy) {
-        Player.getInstance().attack(enemy);
+        if (rollCritMultiplier) {
+            Player.getInstance().attack(enemy, 1.2f);
+        } else if (parryCritMultiplier) {
+            Player.getInstance().attack(enemy, 2f, true);
+        } else Player.getInstance().attack(enemy);
+    }
+
+    private void execRoll(Enemy enemy) {
+        Random random = new Random(System.currentTimeMillis());
+        if (random.nextInt(2) == 0) {
+            rollCritMultiplier = true;
+            execBasicAttack(enemy);
+            rollCritMultiplier = false;
+        } else
+            System.out.println(Player.getInstance().getName() + " failed to roll away...");
+    }
+
+    private void execParry(Enemy enemy) {
+        Random random = new Random(System.currentTimeMillis());
+        if (random.nextInt(6) == 0) {
+            parryCritMultiplier = true;
+            execBasicAttack(enemy);
+            parryCritMultiplier = false;
+        } else
+            System.out.println(Player.getInstance().getName() + " failed to parry the attack...");
     }
 
     @Override

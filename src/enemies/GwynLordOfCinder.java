@@ -43,7 +43,7 @@ public class GwynLordOfCinder implements Enemy {
     @Override
     public Boolean block() {
         Random random = new Random(System.currentTimeMillis());
-        return ((random.nextInt() % 2) == 0);
+        return (random.nextInt(2) == 0);
     }
 
     @Override

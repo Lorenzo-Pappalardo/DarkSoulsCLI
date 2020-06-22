@@ -46,7 +46,7 @@ public class UndeadSoldier implements Enemy {
     @Override
     public Boolean block() {
         Random random = new Random(System.currentTimeMillis());
-        return ((random.nextInt() % 5) == 3);
+        return (random.nextInt(5) == 3);
     }
 
     @Override

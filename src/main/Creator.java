@@ -14,7 +14,7 @@ public class Creator {
      */
     public static Enemy getEnemy(Integer enemiesDefeated) {
         Random random = new Random(System.currentTimeMillis());
-        Integer randomChoice = random.nextInt(10) % (3 + enemiesDefeated);
+        Integer randomChoice = random.nextInt(3 + enemiesDefeated);
         if (randomChoice == 0)          //Ghost
             return new Ghost(getWeapon(randomChoice));
         else if (randomChoice == 1)     //Skeleton
@@ -42,12 +42,12 @@ public class Creator {
     private static Weapon getWeapon(Integer enemy) {
         Random random = new Random(System.currentTimeMillis());
         if (enemy == 0) {               //Ghost
-            Integer randomChoice = random.nextInt() % 3;
+            Integer randomChoice = random.nextInt(3);
             if (randomChoice == 0) return new Knife();
             else if (randomChoice == 1) return new Axe();
             return new Sword();
         } else if (enemy == 1) {        //Skeleton
-            Integer randomChoice = random.nextInt() % 5;
+            Integer randomChoice = random.nextInt(5);
             if (randomChoice == 0) return new Knife();
             else if (randomChoice == 1) return new Axe();
             else if (randomChoice == 2) return new Club();
@@ -56,20 +56,20 @@ public class Creator {
         } else if (enemy == 2) {        //Undead Assassin
             return new Knife();
         } else if (enemy == 3) {        //Undead Soldier
-            Integer randomChoice = random.nextInt() % 5;
+            Integer randomChoice = random.nextInt(5);
             if (randomChoice == 0) return new Knife();
             else if (randomChoice == 1) return new Axe();
             else if (randomChoice == 2) return new Club();
             else if (randomChoice == 3) return new Spear();
             return new Sword();
         } else if (enemy == 4) {        //Infested Barbarian
-            Integer randomChoice = random.nextInt() % 2;
+            Integer randomChoice = random.nextInt(2);
             if (randomChoice == 0) return new Club();
             return new GreatHammer();
         } else if (enemy == 5) {        //Pinwheel
             return new Magic();
         } else if (enemy == 6) {        //Capra Demon
-            Integer randomChoice = random.nextInt() % 2;
+            Integer randomChoice = random.nextInt(2);
             if (randomChoice == 0) return new Spear();
             return new Sword();
         } else if (enemy == 7) {        //Bell Gargoyle
