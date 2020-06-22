@@ -13,10 +13,6 @@ public class Game implements ActiveScreen {
         System.out.println();
     }
 
-    private void getBackToMainMenu(Context context) {
-        context.switchActiveScreen(new MainMenu());
-    }
-
     private void fightingPhase() {
         Player player = Player.getInstance();
         Integer enemiesDefeated = 0;
@@ -56,9 +52,8 @@ public class Game implements ActiveScreen {
     }
 
     @Override
-    public void init(Context context) {
+    public void init() {
         printContents();
         fightingPhase();
-        getBackToMainMenu(context);
     }
 }

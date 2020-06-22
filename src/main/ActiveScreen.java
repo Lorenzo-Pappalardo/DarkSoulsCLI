@@ -7,5 +7,5 @@ public interface ActiveScreen {
     /**
      * Initiates State-specific actions
      */
-    void init(Context context);
+    void init();
 }

@@ -2,7 +2,15 @@ package main;
 
 import java.util.Scanner;
 
-public class MainMenu implements ActiveScreen {
+/**
+ * Context for State design pattern
+ */
+public class MainMenu {
+    /**
+     * Current State for design pattern State
+     */
+    private ActiveScreen activeScreen;
+
     private void printContents() {
         System.out.println("Main Menu");
         for (int i = 0; i < 30; i++) {
@@ -33,9 +41,11 @@ public class MainMenu implements ActiveScreen {
         }
     }
 
-    @Override
-    public void init(Context context) {
-        printContents();
-        context.switchActiveScreen(getChoice());
+    public void start() {
+        while(true) {
+            printContents();
+            activeScreen = getChoice();
+            activeScreen.init();
+        }
     }
 }
