@@ -7,15 +7,20 @@ public class Pinwheel implements Enemy {
     final private Weapon weapon;
     private Float health;
 
-    Pinwheel(Weapon weapon) {
+    public Pinwheel(Weapon weapon) {
         name = "Pinwheel";
-        health = 160f;
+        health = 140f;
         this.weapon = weapon;
     }
 
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Boolean isBoss() {
+        return true;
     }
 
     @Override

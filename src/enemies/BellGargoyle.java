@@ -9,7 +9,7 @@ public class BellGargoyle implements Enemy {
     final private Weapon weapon;
     private Float health;
 
-    BellGargoyle(Weapon weapon) {
+    public BellGargoyle(Weapon weapon) {
         name = "Bell Gargoyle";
         health = 190f;
         this.weapon = weapon;
@@ -18,6 +18,11 @@ public class BellGargoyle implements Enemy {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Boolean isBoss() {
+        return true;
     }
 
     @Override

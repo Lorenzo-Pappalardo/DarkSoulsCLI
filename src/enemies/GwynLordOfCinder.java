@@ -9,7 +9,7 @@ public class GwynLordOfCinder implements Enemy {
     final private Weapon weapon;
     private Float health;
 
-    GwynLordOfCinder(Weapon weapon) {
+    public GwynLordOfCinder(Weapon weapon) {
         name = "Gwyn Lord of Cinder";
         health = 220f;
         this.weapon = weapon;
@@ -18,6 +18,11 @@ public class GwynLordOfCinder implements Enemy {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Boolean isBoss() {
+        return true;
     }
 
     @Override

@@ -9,7 +9,7 @@ public class Skeleton implements Enemy {
     final private Weapon weapon;
     private Float health;
 
-    Skeleton(Weapon weapon) {
+    public Skeleton(Weapon weapon) {
         name = "Skeleton";
         health = 90f;
         this.weapon = weapon;
@@ -18,6 +18,11 @@ public class Skeleton implements Enemy {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Boolean isBoss() {
+        return false;
     }
 
     @Override

@@ -5,32 +5,49 @@ package enemies;
  */
 public interface Enemy {
     /**
-     * Prints info about an Enemy
+     * Returns an Enemy's name
+     *
+     * @return name : String
      */
     String getName();
 
     /**
-     * Returns current Enemy's health
+     * Checks if an Enemy is a Boss
+     *
+     * @return Boolean
+     */
+    Boolean isBoss();
+
+    /**
+     * Returns an Enemy's current health
+     *
+     * @return health : Float
      */
     Float getHealth();
 
     /**
-     * Decreases Enemy's health by the amount of damage taken
+     * Decreases an Enemy's health by the amount of damage taken
      */
     void updateHealth(Float damage);
 
     /**
-     * Checks if the Enemy died and returns the result
+     * Checks if an Enemy died and returns the result
+     *
+     * @return Boolean
      */
     Boolean isDead();
 
     /**
-     * Enemy attacks
+     * Returns the damage an Enemy has inflicted
+     *
+     * @return damage : Integer
      */
     Integer attack();
 
     /**
-     * Enemy blocks
+     * Checks if a Enemy blocks
+     *
+     * @return Boolean
      */
     Boolean block();
 }

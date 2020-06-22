@@ -9,7 +9,7 @@ public class CapraDemon implements Enemy {
     final private Weapon weapon;
     private Float health;
 
-    CapraDemon(Weapon weapon) {
+    public CapraDemon(Weapon weapon) {
         name = "Capra Demon";
         health = 160f;
         this.weapon = weapon;
@@ -18,6 +18,11 @@ public class CapraDemon implements Enemy {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Boolean isBoss() {
+        return true;
     }
 
     @Override

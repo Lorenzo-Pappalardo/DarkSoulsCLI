@@ -12,7 +12,7 @@ public class UndeadAssassin implements Enemy {
     final private Weapon weapon;
     private Float health;
 
-    UndeadAssassin(Weapon weapon) {
+    public UndeadAssassin(Weapon weapon) {
         name = "Undead Assassin";
         health = 60f;
         this.weapon = weapon;
@@ -21,6 +21,11 @@ public class UndeadAssassin implements Enemy {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Boolean isBoss() {
+        return false;
     }
 
     @Override

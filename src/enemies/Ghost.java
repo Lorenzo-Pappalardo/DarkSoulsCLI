@@ -7,7 +7,7 @@ public class Ghost implements Enemy {
     final private Weapon weapon;
     private Float health;
 
-    Ghost(Weapon weapon) {
+    public Ghost(Weapon weapon) {
         name = "Ghost";
         health = 70f;
         this.weapon = weapon;
@@ -16,6 +16,11 @@ public class Ghost implements Enemy {
     @Override
     public String getName() {
         return name;
+    }
+
+    @Override
+    public Boolean isBoss() {
+        return false;
     }
 
     @Override

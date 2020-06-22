@@ -19,6 +19,11 @@ public class InfestedBarbarian implements Enemy {
     }
 
     @Override
+    public Boolean isBoss() {
+        return false;
+    }
+
+    @Override
     public Float getHealth() {
         return health;
     }
