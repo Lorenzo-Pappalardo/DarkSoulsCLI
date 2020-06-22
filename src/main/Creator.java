@@ -14,7 +14,7 @@ public class Creator {
      */
     public static Enemy getEnemy(Integer enemiesDefeated) {
         Random random = new Random(System.currentTimeMillis());
-        Integer randomChoice = random.nextInt() % (3 + enemiesDefeated);
+        Integer randomChoice = random.nextInt(10) % (3 + enemiesDefeated);
         if (randomChoice == 0)          //Ghost
             return new Ghost(getWeapon(randomChoice));
         else if (randomChoice == 1)     //Skeleton
@@ -33,7 +33,7 @@ public class Creator {
             return new BellGargoyle(getWeapon(randomChoice));
         else if (randomChoice == 8)     //Ornstein and Smough
             return new OrnsteinSmoug(getWeapon(randomChoice));
-        return new GwynLordOfCinder(getWeapon(randomChoice));   //Gwyn Lord of Cinder
+        return new GwynLordOfCinder(getWeapon(randomChoice));
     }
 
     /**
