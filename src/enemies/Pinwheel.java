@@ -2,6 +2,8 @@ package enemies;
 
 import weapons.Weapon;
 
+import java.util.Random;
+
 public class Pinwheel implements Enemy {
     final private String name;
     final private Weapon weapon;
@@ -34,8 +36,13 @@ public class Pinwheel implements Enemy {
     }
 
     @Override
-    public Integer attack() {
-        return weapon.getDamage();
+    public Float attack() {
+        Random random = new Random(System.currentTimeMillis());
+        if (random.nextInt(10) == 0) {
+            System.out.println("Enemy crits!");
+            return weapon.getCritMultiplier() * weapon.getDamage();
+        }
+        return weapon.getDamage().floatValue();
     }
 
     @Override

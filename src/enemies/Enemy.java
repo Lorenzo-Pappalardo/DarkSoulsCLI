@@ -35,7 +35,7 @@ public interface Enemy {
      *
      * @return damage : Integer
      */
-    Integer attack();
+    Float attack();
 
     /**
      * Checks if a Enemy blocks

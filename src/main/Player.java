@@ -49,7 +49,7 @@ public class Player {
         return health;
     }
 
-    public void decreaseHealth(Integer value) {
+    public void decreaseHealth(Float value) {
         health -= value;
     }
 

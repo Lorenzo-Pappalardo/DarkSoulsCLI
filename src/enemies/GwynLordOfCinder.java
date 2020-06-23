@@ -36,8 +36,13 @@ public class GwynLordOfCinder implements Enemy {
     }
 
     @Override
-    public Integer attack() {
-        return weapon.getDamage();
+    public Float attack() {
+        Random random = new Random(System.currentTimeMillis());
+        if (random.nextInt(10) == 0) {
+            System.out.println("Enemy crits!");
+            return weapon.getCritMultiplier() * weapon.getDamage();
+        }
+        return weapon.getDamage().floatValue();
     }
 
     @Override

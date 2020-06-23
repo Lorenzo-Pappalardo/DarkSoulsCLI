@@ -6,13 +6,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game implements ActiveScreen {
-    private Boolean rollCritMultiplier;
+    private Boolean rolled;
 
-    private Boolean parryCritMultiplier;
+    private Boolean parried;
 
     public Game() {
-        rollCritMultiplier = false;
-        parryCritMultiplier = false;
+        rolled = false;
+        parried = false;
     }
 
     private void printContents() {
@@ -28,12 +28,15 @@ public class Game implements ActiveScreen {
         Integer enemiesDefeated = 0;
         while (player.getHealth() > 0) {
             Enemy enemy = Creator.getEnemy(enemiesDefeated);
-            while (enemy.getHealth() > 0) {
+            while (!enemy.isDead()) {
                 player.printInfo();
                 enemy.printInfo();
                 playerActions(enemy);
+                enemyActions(enemy);
             }
-            enemiesDefeated++;
+            if (enemy.isBoss())
+                enemiesDefeated = 0;
+            else enemiesDefeated++;
         }
     }
 
@@ -50,6 +53,13 @@ public class Game implements ActiveScreen {
             execParry(enemy);
     }
 
+    private void enemyActions(Enemy enemy) {
+        if (!enemy.isDead() && !rolled && !parried) {
+            Float enemyDamage = enemy.attack();
+            Player.getInstance().decreaseHealth(enemyDamage);
+        }
+    }
+
     private Integer getChoice() {
         System.out.print("\nYour choice: ");
         Scanner scanner = new Scanner(System.in);
@@ -63,19 +73,14 @@ public class Game implements ActiveScreen {
     }
 
     private void execBasicAttack(Enemy enemy) {
-        if (rollCritMultiplier) {
-            Player.getInstance().attack(enemy, 1.2f);
-        } else if (parryCritMultiplier) {
-            Player.getInstance().attack(enemy, 2f, true);
-        } else Player.getInstance().attack(enemy);
+        Player.getInstance().attack(enemy);
     }
 
     private void execRoll(Enemy enemy) {
         Random random = new Random(System.currentTimeMillis());
         if (random.nextInt(2) == 0) {
-            rollCritMultiplier = true;
-            execBasicAttack(enemy);
-            rollCritMultiplier = false;
+            Player.getInstance().attack(enemy, 1.2f);
+            rolled = true;
         } else
             System.out.println(Player.getInstance().getName() + " failed to roll away...");
     }
@@ -83,9 +88,8 @@ public class Game implements ActiveScreen {
     private void execParry(Enemy enemy) {
         Random random = new Random(System.currentTimeMillis());
         if (random.nextInt(6) == 0) {
-            parryCritMultiplier = true;
-            execBasicAttack(enemy);
-            parryCritMultiplier = false;
+            Player.getInstance().attack(enemy, 2f, true);
+            parried = true;
         } else
             System.out.println(Player.getInstance().getName() + " failed to parry the attack...");
     }
