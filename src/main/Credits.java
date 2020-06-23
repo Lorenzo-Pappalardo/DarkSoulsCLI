@@ -9,8 +9,20 @@ public class Credits implements ActiveScreen {
         System.out.println();
     }
 
+    private void creditsBody() {
+        System.out.println("Game developed by Lorenzo Pappalardo");
+        System.out.println("Inspired by Dark Souls, a game by FromSoftware");
+    }
+
     @Override
     public void init() {
         printContents();
+        creditsBody();
+        try {
+            Thread.sleep(10000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println();
     }
 }
