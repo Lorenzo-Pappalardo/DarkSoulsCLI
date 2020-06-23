@@ -1,5 +1,6 @@
 package main;
 
+import decorator.Component;
 import enemies.Enemy;
 
 import java.util.Random;
@@ -10,9 +11,12 @@ public class Game implements ActiveScreen {
 
     private Boolean parried;
 
+    private Integer nextUpgradeCost;
+
     public Game() {
         rolled = false;
         parried = false;
+        nextUpgradeCost = 20;
     }
 
     private void printContents() {
@@ -24,7 +28,7 @@ public class Game implements ActiveScreen {
     }
 
     private void fightingPhase() {
-        Player player = new Player();
+        Component player = new Player();
         Integer defeatedEnemies = 0;
         while (!player.isDead()) {
             Enemy enemy = Creator.getEnemy(defeatedEnemies);
@@ -54,6 +58,8 @@ public class Game implements ActiveScreen {
             execRoll(player, enemy);
         else if (choice == 3)
             execParry(player, enemy);
+        else
+            upgrade(player);
     }
 
     private void enemyActions(Player player, Enemy enemy) {
@@ -97,7 +103,8 @@ public class Game implements ActiveScreen {
             System.out.println(player.getName() + " failed to parry the attack...");
     }
 
-    private void postFight() {
+    private void upgrade(Player player) {
+        if (player.)
     }
 
     private void died() {

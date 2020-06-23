@@ -12,22 +12,25 @@ public class Player implements Component {
     private Float damage;
 
     public Player() {
-        name = setName();
+        name = inputName();
         health = 100f;
         souls = 0;
         damage = 30f;
     }
 
-    public String setName() {
+    @Override
+    public String inputName() {
         System.out.println("Enter a name: ");
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public void printInfo() {
         System.out.println();
         System.out.println("[Player]");
@@ -36,28 +39,28 @@ public class Player implements Component {
         System.out.println("Souls: " + souls);
     }
 
+    @Override
     public Float getHealth() {
         return health;
     }
 
+    @Override
     public void decreaseHealth(Float value) {
         health -= value;
     }
 
-    public void setHealth(Float health) {
-        this.health = health;
-    }
-
+    @Override
     public Boolean isDead() {
         return (health <= 0);
     }
 
-    public void attack(Enemy enemy) {
+    @Override
+    public void attack(Enemy enemy, Float damage) {
         System.out.println(name + " performs a basic attack and inflicts " + damage + " points of damage!");
         enemy.decreaseHealth(damage);
     }
 
-    public void attack(Enemy enemy, Float critMultiplier) {
+    /*public void attack(Enemy enemy, Float critMultiplier) {
         Float damage = this.damage * critMultiplier;
         System.out.println(name + " performs a roll and attacks the enemy from behind! It inflicts " + damage + " points of damage!");
         enemy.decreaseHealth(damage);
@@ -67,7 +70,7 @@ public class Player implements Component {
         Float damage = this.damage * critMultiplier;
         System.out.println(name + " performs a parry and attacks the enemy while it's stunned! It inflicts " + damage + " points of damage!");
         enemy.decreaseHealth(damage);
-    }
+    }*/
 
     @Override
     public void upgradeHealth(Integer defeatedEnemies) {
