@@ -12,9 +12,9 @@ public class Creator {
     /**
      * Factory Method responsible of creating instances of Enemy and returning them to the caller
      */
-    public static Enemy getEnemy(Integer enemiesDefeated) {
+    public static Enemy getEnemy(Integer defeatedEnemies) {
         Random random = new Random(System.currentTimeMillis());
-        Integer randomChoice = random.nextInt(3 + enemiesDefeated);
+        Integer randomChoice = random.nextInt(3 + defeatedEnemies);
         if (randomChoice == 0)          //Ghost
             return new Ghost(getWeapon(randomChoice));
         else if (randomChoice == 1)     //Skeleton

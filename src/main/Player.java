@@ -1,30 +1,21 @@
 package main;
 
+import decorator.Component;
 import enemies.Enemy;
 
 import java.util.Scanner;
 
-/**
- * Singleton
- */
-public class Player {
-    private static Player instance;
+public class Player implements Component {
     final private String name;
     private Float health;
     private Integer souls;
-    final private Float damage;
+    private Float damage;
 
-    private Player() {
+    public Player() {
         name = setName();
         health = 100f;
         souls = 0;
         damage = 30f;
-    }
-
-    public static Player getInstance() {
-        if (instance == null)
-            instance = new Player();
-        return instance;
     }
 
     public String setName() {
@@ -57,8 +48,8 @@ public class Player {
         this.health = health;
     }
 
-    public void updateSouls(Integer value) {
-        souls += value;
+    public Boolean isDead() {
+        return (health <= 0);
     }
 
     public void attack(Enemy enemy) {
@@ -76,5 +67,20 @@ public class Player {
         Float damage = this.damage * critMultiplier;
         System.out.println(name + " performs a parry and attacks the enemy while it's stunned! It inflicts " + damage + " points of damage!");
         enemy.decreaseHealth(damage);
+    }
+
+    @Override
+    public void upgradeHealth(Integer defeatedEnemies) {
+        this.health += 5 * defeatedEnemies;
+    }
+
+    @Override
+    public void upgradeDamageOutput(Integer defeatedEnemies) {
+        this.damage += 3 * defeatedEnemies;
+    }
+
+    @Override
+    public void upgradeSouls(Integer defeatedEnemies) {
+        this.souls += 10 * defeatedEnemies;
     }
 }

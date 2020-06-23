@@ -12,6 +12,7 @@ public class MainMenu {
     private ActiveScreen activeScreen;
 
     private void printContents() {
+        System.out.println("\n\n");
         System.out.println("Main Menu");
         for (int i = 0; i < 30; i++) {
             System.out.print('-');
@@ -42,7 +43,7 @@ public class MainMenu {
     }
 
     public void start() {
-        while(true) {
+        while (true) {
             printContents();
             activeScreen = getChoice();
             activeScreen.init();

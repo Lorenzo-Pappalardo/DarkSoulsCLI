@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.Reader;
 
+/**
+ * Singleton
+ */
 public class Storage {
     private Storage instance;
     private Reader scoresReader;
