@@ -1,6 +1,5 @@
-package main;
+package enemies;
 
-import enemies.*;
 import weapons.*;
 
 import java.util.Random;

@@ -1,7 +1,8 @@
-package main;
+package screens;
 
 public class Credits implements ActiveScreen {
     private void printContents() {
+        System.out.println();
         System.out.println("Credits");
         for (int i = 0; i < 30; i++) {
             System.out.print('-');

@@ -1,27 +1,41 @@
 package storage;
 
+import main.Player;
+
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.Reader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Singleton
  */
 public class Storage {
-    private Storage instance;
-    private Reader scoresReader;
+    private static Storage instance;
+    private final File saveFile = new File("saveFile.txt");
+    private final List<String> newRecords;
 
     private Storage() {
+        newRecords = new ArrayList<>();
+    }
+
+    public void save() {
         try {
-            scoresReader = new FileReader(new File("scores.txt"));
-        } catch (FileNotFoundException e) {
-            System.err.println("Couldn't open or create file");
-            System.exit(1);
+            FileWriter fileWriter = new FileWriter(saveFile, true);
+            for (String record : newRecords)
+                fileWriter.write(record);
+            fileWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public Storage getInstance() {
+    public void append(Player player, Integer defeatedEnemies) {
+        newRecords.add("Name: " + player.getName() + ", Defeated Enemies: " + defeatedEnemies + ", Acquired Souls: " + player.getTotalAcquiredSouls() + "\n");
+    }
+
+    public static Storage getInstance() {
         if (instance == null)
             instance = new Storage();
         return instance;

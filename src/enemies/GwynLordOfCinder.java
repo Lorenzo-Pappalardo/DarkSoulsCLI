@@ -46,17 +46,12 @@ public class GwynLordOfCinder implements Enemy {
     }
 
     @Override
-    public Boolean block() {
-        Random random = new Random(System.currentTimeMillis());
-        return (random.nextInt(2) == 0);
-    }
-
-    @Override
     public void printInfo() {
         System.out.println();
         System.out.println("[Enemy]");
         System.out.println("Name: " + name);
         System.out.println("Health: " + health);
         System.out.println("Weapon: " + weapon.getName());
+        System.out.println();
     }
 }

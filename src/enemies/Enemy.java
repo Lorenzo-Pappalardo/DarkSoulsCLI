@@ -5,11 +5,9 @@ package enemies;
  */
 public interface Enemy {
     /**
-     * Checks if an Enemy is a Boss
-     *
-     * @return Boolean
+     * Prints Enemy name and health
      */
-    Boolean isBoss();
+    void printInfo();
 
     /**
      * Returns an Enemy's current health
@@ -24,6 +22,13 @@ public interface Enemy {
     void decreaseHealth(Float damage);
 
     /**
+     * Checks if an Enemy is a Boss
+     *
+     * @return Boolean
+     */
+    Boolean isBoss();
+
+    /**
      * Checks if an Enemy died and returns the result
      *
      * @return Boolean
@@ -36,16 +41,4 @@ public interface Enemy {
      * @return damage : Integer
      */
     Float attack();
-
-    /**
-     * Checks if a Enemy blocks
-     *
-     * @return Boolean
-     */
-    Boolean block();
-
-    /**
-     * Prints Enemy name and health
-     */
-    void printInfo();
 }

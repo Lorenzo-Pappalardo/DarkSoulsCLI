@@ -1,4 +1,4 @@
-package main;
+package screens;
 
 /**
  * State interface for State design pattern
