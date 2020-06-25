@@ -1,7 +1,7 @@
 package screens;
 
 public class Credits implements ActiveScreen {
-    private void printContents() {
+    private void printScreenTitle() {
         System.out.println();
         System.out.println("Credits");
         for (int i = 0; i < 30; i++) {
@@ -17,7 +17,7 @@ public class Credits implements ActiveScreen {
 
     @Override
     public void init() {
-        printContents();
+        printScreenTitle();
         creditsBody();
         try {
             Thread.sleep(5000);

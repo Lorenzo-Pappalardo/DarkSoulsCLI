@@ -30,7 +30,7 @@ public class Game implements ActiveScreen {
         defeatedEnemies = totalDefeatedEnemies;
     }
 
-    private void printContents() {
+    private void printScreenTitle() {
         System.out.println("Game");
         for (int i = 0; i < 30; i++) {
             System.out.print('-');
@@ -159,7 +159,7 @@ public class Game implements ActiveScreen {
 
     @Override
     public void init() {
-        printContents();
+        printScreenTitle();
         fightingPhase();
     }
 }

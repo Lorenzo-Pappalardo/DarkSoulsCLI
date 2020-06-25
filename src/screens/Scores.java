@@ -9,7 +9,7 @@ import java.io.LineNumberReader;
  * Concrete State for design pattern State
  */
 public class Scores implements ActiveScreen {
-    private void printContents() {
+    private void printScreenTitle() {
         System.out.println();
         System.out.println("Scores");
         for (int i = 0; i < 30; i++) {
@@ -22,8 +22,8 @@ public class Scores implements ActiveScreen {
         File saveFile = new File("saveFile.txt");
         if (saveFile.exists()) {
             try {
-                FileReader reader = new FileReader(saveFile);
-                LineNumberReader lineNumberReader = new LineNumberReader(reader);
+                FileReader fileReader = new FileReader(saveFile);
+                LineNumberReader lineNumberReader = new LineNumberReader(fileReader);
                 while (lineNumberReader.ready())
                     System.out.println(lineNumberReader.readLine());
             } catch (IOException e) {
@@ -35,7 +35,7 @@ public class Scores implements ActiveScreen {
 
     @Override
     public void init() {
-        printContents();
+        printScreenTitle();
         readScores();
     }
 }
