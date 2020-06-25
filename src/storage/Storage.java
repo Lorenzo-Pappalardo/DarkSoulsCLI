@@ -35,6 +35,11 @@ public class Storage {
         newRecords.add("Name: " + player.getName() + ", Defeated Enemies: " + defeatedEnemies + ", Acquired Souls: " + player.getTotalAcquiredSouls() + "\n");
     }
 
+    /**
+     * Returns the only existing instance
+     *
+     * @return instance : Storage
+     */
     public static Storage getInstance() {
         if (instance == null)
             instance = new Storage();

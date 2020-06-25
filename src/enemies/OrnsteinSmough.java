@@ -4,12 +4,12 @@ import weapons.Weapon;
 
 import java.util.Random;
 
-public class OrnsteinSmoug implements Enemy {
+public class OrnsteinSmough implements Enemy {
     final private String name;
     final private Weapon weapon;
     private Float health;
 
-    public OrnsteinSmoug(Weapon weapon) {
+    public OrnsteinSmough(Weapon weapon) {
         name = "Ornstein and Smough";
         health = 220f;
         this.weapon = weapon;

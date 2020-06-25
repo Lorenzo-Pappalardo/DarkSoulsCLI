@@ -31,7 +31,7 @@ public class Creator {
         else if (randomChoice == 7)     //Bell Gargoyle
             return new BellGargoyle(getWeapon(randomChoice));
         else if (randomChoice == 8)     //Ornstein and Smough
-            return new OrnsteinSmoug(getWeapon(randomChoice));
+            return new OrnsteinSmough(getWeapon(randomChoice));
         return new GwynLordOfCinder(getWeapon(randomChoice));
     }
 

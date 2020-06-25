@@ -38,7 +38,7 @@ public class InfestedBarbarian implements Enemy {
     @Override
     public Float attack() {
         Random random = new Random(System.currentTimeMillis());
-        if (random.nextInt(10) == 0) {
+        if (random.nextInt(10) == 0 && (!weapon.getName().equals("Great Hammer"))) {
             System.out.println("Enemy crits!");
             return weapon.getCritMultiplier() * weapon.getDamage();
         }

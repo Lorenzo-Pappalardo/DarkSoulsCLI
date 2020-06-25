@@ -6,7 +6,7 @@ public class GreatHammer implements Weapon {
     final private Float critMultiplier;
 
     public GreatHammer() {
-        name = "Giant Hammer";
+        name = "Great Hammer";
         damage = 27;
         critMultiplier = 1f;
     }

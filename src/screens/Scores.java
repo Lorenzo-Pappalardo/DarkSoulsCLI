@@ -5,6 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.LineNumberReader;
 
+/**
+ * Concrete State for design pattern State
+ */
 public class Scores implements ActiveScreen {
     private void printContents() {
         System.out.println();
