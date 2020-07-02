@@ -1,5 +1,3 @@
 # Project exclude paths
 /out/
-src/main/*.class
-src/Remove Compiled Files.ps1
 saveFile.txt
