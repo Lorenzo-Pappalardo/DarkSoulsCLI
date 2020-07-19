@@ -119,7 +119,7 @@ public class Game implements ActiveScreen {
 
     private void execParry(Player player, Enemy enemy) {
         Random random = new Random(System.currentTimeMillis());
-        if (random.nextInt(6) == 0) {
+        if (random.nextInt(5) == 0) {
             System.out.println(player.getName() + " performs a parry!");
             player.attack(enemy, 2f);
             parried = true;
